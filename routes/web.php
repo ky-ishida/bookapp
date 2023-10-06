@@ -3,6 +3,7 @@
 use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,6 @@ Route::delete('/book/{book}',function (Book $book){
 
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
