@@ -31,4 +31,4 @@ Route::post('/books/update', 'BookController@update');
 // ログイン認証機能を呼び出すコマンド
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'BookController@index')->name('home');
