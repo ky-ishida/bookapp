@@ -93,5 +93,10 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-4 offset-md-5 text-center">
+                {{ $books->links() }}
+            </div>
+        </div>
     @endif
 @endsection

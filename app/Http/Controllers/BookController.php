@@ -12,7 +12,7 @@ class BookController extends Controller
     // 一覧を取得する
     public function index()
     {
-        $books = Book::orderBy('created_at', 'asc')->get();
+        $books = Book::orderBy('created_at', 'asc')->paginate(3);
         return view('books', ['books' => $books]);
     }
 
@@ -80,7 +80,8 @@ class BookController extends Controller
     }
 
     // 削除処理
-    public function destroy(Book $book){
+    public function destroy(Book $book)
+    {
         $book->delete();
         // 削除した後bookページにリダイレクト
         return redirect('/');
