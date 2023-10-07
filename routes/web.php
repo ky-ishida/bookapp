@@ -17,15 +17,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('books');
 });
-Route::post('/books',function (Request $request){
-
+Route::post('/books', function (Request $request) {
 });
 
-Route::delete('/book/{book}',function (Book $book){
-
-
+Route::delete('/book/{book}', function (Book $book) {
 });
 Auth::routes();
 
