@@ -76,7 +76,7 @@ class BookController extends Controller
         $books->published = $request->published;
         $books->save();
         // 削除したあとはbookページにリダイレクト
-        return  redirect('/');
+        return  redirect('/')->with('mes','本の登録が完了しました');
     }
 
     // 削除処理
