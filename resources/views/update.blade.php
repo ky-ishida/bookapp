@@ -3,7 +3,7 @@
     <div class="row container">
         <div class="col-md-12">
             @include('common/errors')
-            <form action="{{ url('book/update') }}"method="POST">
+            <form action="{{ url('books/update') }}"method="POST">
                 {{-- item_name --}}
                 <div class="form-group">
                     <label for="item_name">名前</label>
@@ -22,7 +22,7 @@
                 {{--   published --}}
                 <label for=" published">公開日</label>
                 <div class="form-group">
-                    <input type="text" name=" published" class="form-control" value="{{ $book->published }}">
+                    <input type="text" name="published" class="form-control" value="{{ $book->published }}">
                 </div>
 
                 <div class="well well-sm">

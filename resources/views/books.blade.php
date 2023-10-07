@@ -27,11 +27,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="number" class="col-sm-3 control-label">数</label>
-                    <input type="date" name="item_number" class="form-control">
+                    <input type="text" name="item_number" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="published" class="col-sm-3 control-label">公開日</label>
-                    <input type="text" name="published" class="form-control">
+                    <input type="date" name="published" class="form-control">
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
                     </button>
                 </div>
             </div>
-    
-    </form>
+
+        </form>
     </div>
 
     {{-- 登録している本の表示 --}}
