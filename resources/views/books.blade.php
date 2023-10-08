@@ -34,7 +34,13 @@
                     <input type="date" name="published" class="form-control">
                 </div>
             </div>
-
+            {{-- ファイルを選択 --}}
+            <form enctype="multipart/form-data" action="{{ url('books') }}" method="POST" class="form-horizontal">
+                <div class="col-sm-6">
+                    <label>画像</label>
+                    <input type="file" name="item_img">
+                </div>
+            </form>
             {{-- 本登録ボタン --}}
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
@@ -69,6 +75,7 @@
                                 {{-- 本のタイトル     --}}
                                 <td class="table-text">
                                     <div>{{ $book->item_name }}</div>
+                                    <div><img src="upload/{{ $book->item_img }}" width="100"></div>
                                 </td>
                                 {{-- 本更新ボタン --}}
                                 <td>
