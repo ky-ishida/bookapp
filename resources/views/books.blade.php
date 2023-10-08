@@ -9,38 +9,38 @@
         @include('common.errors')
 
         {{-- 本登録フォーム --}}
-        <form action="{{ url('books') }}"method="POST" class="form-horizontal">
+        <form enctype="multipart/form-data" action="{{ url('books') }}"method="POST" class="form-horizontal">
             @csrf
 
             {{-- 本のタイトル --}}
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="book" class="col-sm-3 control-label">名前</label>
-                    <input type="text" name="item_name" class="form-control">
+                    <label for="name" class="col-sm-3 control-label">名前</label>
+                    <input type="text" name="item_name" class="form-control" id="name">
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="omount" class="col-sm-3 control-label">金額</label>
-                    <input type="text" name="item_amount" class="form-control">
+                    <input type="text" name="item_amount" class="form-control" id="omount">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="number" class="col-sm-3 control-label">数</label>
-                    <input type="text" name="item_number" class="form-control">
+                    <input type="text" name="item_number" class="form-control" id="number">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="published" class="col-sm-3 control-label">公開日</label>
-                    <input type="date" name="published" class="form-control">
+                    <input type="date" name="published" class="form-control" id="published">
                 </div>
             </div>
             {{-- ファイルを選択 --}}
-            <form enctype="multipart/form-data" action="{{ url('books') }}" method="POST" class="form-horizontal">
-                <div class="col-sm-6">
-                    <label>画像</label>
-                    <input type="file" name="item_img">
-                </div>
-            </form>
+
+            <div class="col-sm-6">
+                <label for="img">画像</label>
+                <input type="file" name="item_img" id="img">
+            </div>
+
             {{-- 本登録ボタン --}}
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
