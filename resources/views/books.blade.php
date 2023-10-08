@@ -53,9 +53,9 @@
         </form>
     </div>
     {{-- 本の登録完了コメント --}}
-    @if (session('message'))
+    @if (session('mes'))
         <div class="alert alert-success">
-            {session('mes')}
+            {{ session('mes') }}
         </div>
     @endif
     {{-- 登録している本の表示 --}}
