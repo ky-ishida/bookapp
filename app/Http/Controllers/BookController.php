@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
@@ -101,6 +102,14 @@ class BookController extends Controller
     // 削除処理
     public function destroy(Book $book)
     {
+        // 画像ファイルの削除
+        // 画像ファイルパスを取得(文字列結合している)
+        $filePath = public_path('upload/' . $book->item_img);
+        // 画像が存在するときはファイルを削除する
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+        // データーベースから削除
         $book->delete();
         // 削除した後bookページにリダイレクト
         return redirect('/');

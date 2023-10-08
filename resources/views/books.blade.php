@@ -70,37 +70,47 @@
                     </thead>
                     {{-- テーブル本体 --}}
                     <tbody>
-                        @foreach ($books as $book)
-                            <tr>
-                                {{-- 本のタイトル     --}}
-                                <td class="table-text">
-                                    <div>{{ $book->item_name }}</div>
-                                    <div><img src="upload/{{ $book->item_img }}" width="100"></div>
-                                </td>
-                                {{-- 本更新ボタン --}}
-                                <td>
-                                    <form action="{{ url('update/' . $book->id) }}" method="POST">
-                                        {{-- CSRFからの保護 --}}
-                                        @csrf
-                                        <button type="submit" class="btn btn-primary">
-                                            更新
-                                        </button>
-                                    </form>
-                                </td>
-                                <td>
-                                    {{-- 本の削除ボタン --}}
-                                    <form action="{{ url('book/' . $book->id) }}"method="POST">
-                                        {{-- CSRFからの保護 --}}
-                                        @csrf
-                                        {{-- 疑似フォームメソッド --}}
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
-                                            削除
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
+                        {{-- 本のデータがあるかないか --}}
+                        @if (count($books)== 0)
+                            <div class="alert alert-success">
+                                本のデータが1つもありません
+                            </div>
+                        @else
+                            @foreach ($books as $book)
+                                <tr>
+                                    {{-- 本のタイトル     --}}
+                                    <td class="table-text">
+                                        <div>{{ $book->item_name }}</div>
+                                        {{-- 画像の有無 --}}
+                                        @if (!empty($book->item_img))
+                                            <div><img src="upload/{{ $book->item_img }}" width="100"></div>
+                                        @endif
+                                    </td>
+                                    {{-- 本更新ボタン --}}
+                                    <td>
+                                        <form action="{{ url('update/' . $book->id) }}" method="POST">
+                                            {{-- CSRFからの保護 --}}
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">
+                                                更新
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        {{-- 本の削除ボタン --}}
+                                        <form action="{{ url('book/' . $book->id) }}"method="POST">
+                                            {{-- CSRFからの保護 --}}
+                                            @csrf
+                                            {{-- 疑似フォームメソッド --}}
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">
+                                                削除
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
